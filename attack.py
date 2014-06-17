@@ -23,7 +23,7 @@ all_addrs = set()
 class NodeConn(object):
     def __init__(self, addr, log, netmagic=None, sub_version='/pynode/'):
         if netmagic is None:
-            netmagic = bitcoin.coredefs.NETWORKS['testnet3']
+            netmagic = bitcoin.coredefs.NETWORKS['mainnet']
 
         self.log = log
         self.addr = addr
@@ -217,7 +217,7 @@ while True:
 
             new_addr = new_addrs.pop()
             try:
-                peer = NodeConn((new_addr, 18333), logging, sub_version='/BitCoinJ:0.10.1/')
+                peer = NodeConn((new_addr, 8333), logging, sub_version='/BitCoinJ:0.10.1/')
             except IOError as err:
                 logging.warn('Failed to connect to %s: %r' % (new_addr, err))
                 continue
